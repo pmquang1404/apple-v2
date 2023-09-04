@@ -88,7 +88,8 @@ function SingleProduct() {
   //fetch api product
   useEffect(() => {
     const fetchApi = async () => {
-      const result = await singleApi.singleApi(productId);
+      const result = await singleApi.singleApi(`${productId - 1}`); //id product = 1 but id in firebase = 0
+      console.log(result)
       if (result.message) {
         console.log(result.message);
         setIsLoading(false);

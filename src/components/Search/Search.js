@@ -51,7 +51,7 @@ function Search() {
     };
      //render list product search demo
     
-
+    // console.log(searchResult)
     useEffect(() => {
         if(!debouncedValue.trim()) {
             setSearchResult([])
@@ -62,6 +62,7 @@ function Search() {
             setLoading(true)
             setError(false)
             const result = await searchApi.search(debouncedValue)
+            console.log(result)
             if (result.length === 0) {
                 setError(true)
                 setLoading(false)

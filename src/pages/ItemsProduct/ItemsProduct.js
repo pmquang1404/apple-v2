@@ -45,7 +45,7 @@ function ProductPage() {
   // console.log(path, heading, h1)
   useEffect(() => {
     const fetchApi = async () => {
-      const result = await categoryApi.categoryApi(category);
+      const result = await categoryApi.findProductsByCategory(category);
       setProduct(result);
       setIsLoading(false);
       setData(true);

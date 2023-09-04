@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
+import 'firebase/firestore';
 
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
@@ -11,11 +12,13 @@ import DefaultLayout from 'src/layouts';
 import ScrollToTop from './scrollToTop';
 import styles from 'src/layouts/DefaultLayout/DefaultLayout.module.scss';
 
+
+
 const cx = classNames.bind(styles);
 
 function App() {
   const [showGoToTop, setShowGoToTop] = useState(false)
-
+  
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY >= 350) {
@@ -30,6 +33,7 @@ function App() {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
+
 
   function handleTop() {
     document.body.scrollTop = 0;

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import styles from "./ProductItems.module.scss"
 import config from "src/config";
 import HomeLoading from "src/components/Loading/HomeLoading";
+import * as categoryApi from "src/services/categoryApi";
 
 
 
@@ -14,12 +15,13 @@ function Ipad() {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        fetch('https://api-json-server-1c2s.onrender.com/api/data?category=ipad')
-            .then(res => res.json())
-            .then(data => {
-                setData(data)
-                setLoading(false)
-            })
+        const fetchApi = async () => {
+            const result = await categoryApi.findProductsByCategory("ipad");
+            setLoading(false);
+            setData(result);
+        };
+
+        fetchApi();
     }, [])
     const dataSlice = data.slice(0, 4)
     return (

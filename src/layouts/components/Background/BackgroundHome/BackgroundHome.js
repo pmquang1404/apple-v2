@@ -4,6 +4,8 @@ import { useState, useRef, useEffect } from "react";
 import { bannerHome } from "src/assets/data/banner";
 import { bannerHomeMobile } from "src/assets/data/bannerMobile";
 import BackgroundLoading from "src/components/Loading/BackgroundLoading";
+import * as categoryApi from "src/services/categoryApi";
+
 const cx = classNames.bind(styles)
 function Background() {
 
@@ -19,11 +21,13 @@ function Background() {
         }
     }
     useEffect(() => {
-        fetch("https://api-json-server-1c2s.onrender.com/api/data?category=iphone")
-        .then(res => res.json())
-        .then(res => {
-            setLoading(false)
-        })
+        const fetchApi = async () => {
+            const result = await categoryApi.findProductsByCategory("iphone");
+            setLoading(false);
+            return result
+        };
+
+        fetchApi();
     }, [])
     useEffect(() => {
         let bannerIndex = width > '739' ? bannerHome : bannerHomeMobile
@@ -56,7 +60,7 @@ function Background() {
         <>
             {loading && <BackgroundLoading />}
             {!loading && <div className={cx('wrapper')}>
-    
+
                 {width > '739' ?
                     (
                         <div

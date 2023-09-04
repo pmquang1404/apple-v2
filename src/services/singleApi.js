@@ -1,10 +1,11 @@
-import httpRequest from "src/utils/httpRequest";
+
+import { getFirebaseData } from 'src/utils/httpRequest'; // Sửa đường dẫn import
 
 export const singleApi = async (id) => {
-    try {
-        const res = await httpRequest.get(`data/${id}`);
-        return res.data;
-    } catch (error) {
-        return error
-    }
+  try {
+    const res = await getFirebaseData(`data/${id}`);
+    return res;
+  } catch (error) {
+    return error;
+  }
 };
