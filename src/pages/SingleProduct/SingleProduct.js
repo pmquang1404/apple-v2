@@ -18,18 +18,7 @@ import NotFound from "../NotFound";
 import SingleLoading from "src/components/Loading/SingleLoading";
 const cx = classNames.bind(styles);
 function SingleProduct() {
-  const tabs = [
-    {
-      id: 1,
-      heading: "Mô tả",
-      value: <Overview />,
-    },
-    {
-      id: 2,
-      heading: "Thông số kỹ thuật",
-      value: <Specification />,
-    },
-  ];
+
   const colorCodes = {
     "Space Gray": "#b1b3b6",
     "Silver": "#e3e5e3",
@@ -201,6 +190,18 @@ function SingleProduct() {
   };
   const priceString = getText(price.toLocaleString().concat("đ"));
 
+  const tabs = [
+    {
+      id: 1,
+      heading: "Mô tả",
+      value: <Overview description={product?.description} />,
+    },
+    {
+      id: 2,
+      heading: "Thông số kỹ thuật",
+      value: <Specification />,
+    },
+  ];
   // console.log(color, colorValue)
   return (
     <>
@@ -238,8 +239,7 @@ function SingleProduct() {
                                   <div
                                     className={cx(
                                       "option",
-                                      `${
-                                        value === storageValue ? "active" : ""
+                                      `${value === storageValue ? "active" : ""
                                       }`
                                     )}
                                     key={idx}
@@ -271,8 +271,7 @@ function SingleProduct() {
                                 <div
                                   className={cx(
                                     "option",
-                                    `${
-                                      value === screenSizeValue ? "active" : ""
+                                    `${value === screenSizeValue ? "active" : ""
                                     }`
                                   )}
                                   key={idx}
