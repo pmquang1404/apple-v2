@@ -1,11 +1,10 @@
 
-
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/database';
 
 // Thêm thông tin cấu hình Firebase vào đây
 const firebaseConfig = {
-  apiKey: "AIzaSyCmJ1TyU0992u8v94WmhpEWHH-FnfjsK7c",
+  apiKey: process.env.REACT_APP_FIREBASE,
   authDomain: "mobileshop-4e176.firebaseapp.com",
   databaseURL: "https://mobileshop-4e176-default-rtdb.firebaseio.com",
   projectId: "mobileshop-4e176",

@@ -29,7 +29,7 @@ function Contact() {
     setIsSubmit(true);
   };
   useEffect(() => {
-    console.log(formErrors);
+    // console.log(formErrors);
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       emailjs
         .sendForm(
@@ -65,7 +65,7 @@ function Contact() {
           }
         );
     } else {
-      console.log("error");
+      // console.log("error");
     }
     // eslint-disable-next-line
   }, [formErrors]);
@@ -153,12 +153,12 @@ function Contact() {
 
       <div className={cx("social-icons")}>
         <div className={cx("facebook")}>
-          <a href="https://www.facebook.com/QuangCun2001">
+          <a href="https://www.facebook.com/pmquang1404">
             <FontAwesomeIcon className={cx("fab")} icon={faFacebookF} />
           </a>
         </div>
         <div className={cx("twitter")}>
-          <a href="https://github.com/minhquang2001">
+          <a href="https://github.com/pmquang1404">
             <FontAwesomeIcon className={cx("fab")} icon={faGithub} />
           </a>
         </div>

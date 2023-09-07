@@ -10,12 +10,13 @@ import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import style from "./CheckOut.module.scss";
 import { removeAllItem } from "src/pages/SingleProduct/redux/cartSlice";
+import { dbRef } from "src/utils/httpRequest";
 
 const cx = classNames.bind(style);
 function CheckOut() {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-  console.log(cart);
+  // console.log(cart);
 
   const arrayListProduct = cart?.map((product) => ({
     productDetailId: product.id,
@@ -50,10 +51,10 @@ function CheckOut() {
   };
   useEffect(() => {
     (async function () {
-      console.log(formErrors);
+      // console.log(formErrors);
       if (Object.keys(formErrors).length === 0 && isSubmit) {
         try {
-          await axios.post("https://api.levanphuc.asia/api/v1/order", dataCart);
+          await dbRef.child("cart").push(dataCart)
           Swal.fire({
             position: "center",
             icon: "success",
@@ -80,7 +81,7 @@ function CheckOut() {
           setError(true);
         }
       } else {
-        console.log("error");
+        // console.log("error");
       }
     })();
     // eslint-disable-next-line
