@@ -91,15 +91,15 @@ function CheckOut() {
     // const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
     const number = /^[0-9]+$/;
     if (!values.name) {
-      errors.name = "Name is required!";
+      errors.name = "Vui lòng nhập tên của bạn !";
     }
     if (!values.numberPhone) {
-      errors.numberPhone = "Number is required!";
+      errors.numberPhone = "Vui lòng nhập số điện thoại !";
     } else if (!number.test(values.numberPhone)) {
-      errors.numberPhone = "This is not a valid number format!";
+      errors.numberPhone = "Vui lòng nhập định dạng số !";
     }
     if (!values.address) {
-      errors.address = "Number is required!";
+      errors.address = "Vui lòng nhập địa chỉ !";
     }
     return errors;
   };

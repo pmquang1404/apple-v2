@@ -79,22 +79,22 @@ function Contact() {
     const errors = {};
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
     if (!values.Name) {
-      errors.Name = "Name is required!";
+      errors.Name = "Vui lòng nhập tên của bạn !";
     }
     if (!values.Email) {
-      errors.Email = "Email is required!";
+      errors.Email = "Vui lòng nhập Email !";
     } else if (!regex.test(values.Email)) {
-      errors.Email = "This is not a valid email format!";
+      errors.Email = "Vui lòng nhập đúng định dạng Email !";
     }
     if (!values.Text) {
-      errors.Text = "Text is required!";
+      errors.Text = "Vui lòng nhập tin nhắn !";
     }
     return errors;
   };
   return (
     <form ref={form} onSubmit={sendEmail} className={cx("contact-us")}>
       <div className={cx("title")}>
-        <h1>Contact us</h1>
+        <h1>Liên hệ với chúng tôi</h1>
       </div>
       <div className={cx("form")}>
         <div className={cx("form-items")}>
@@ -102,7 +102,7 @@ function Contact() {
             type="text"
             className={cx("input")}
             spellCheck="false"
-            placeholder="Name"
+            placeholder="Họ và Tên"
             name="Name"
             value={formValues.Name}
             onChange={handleChange}
@@ -144,7 +144,7 @@ function Contact() {
       </div>
 
       <button className={cx("btn")} type="submit" value="Send">
-        Submit
+        Liên Hệ
         <FontAwesomeIcon
           icon={faArrowRight}
           className={cx("fas", "fa-arrow-right")}
